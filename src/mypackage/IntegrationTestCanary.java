@@ -17,7 +17,7 @@ public class IntegrationTestCanary {
 		PrintWriter out;
 		double total_cost=35.0;
 		BufferedWriter output = null ;
-		Socket socket = new Socket("localhost",6060);
+		Socket socket = new Socket("internal-backend-ELB-1702404713.eu-west-1.elb.amazonaws.com",6060);
         in = new BufferedReader(
                 new InputStreamReader(socket.getInputStream()));
         out = new PrintWriter(socket.getOutputStream(), true);
@@ -33,7 +33,7 @@ public class IntegrationTestCanary {
         }
         System.out.println("The total cost is : "+response);
         
-	        if (Double.parseDouble(response) == 40.95) 
+	        if (Double.parseDouble(response) == 41.95) 
 	             {
 	        	try {
 	                File file = new File("/var/lib/jenkins/workspace/IntegrationTestCanary/TestFile");
