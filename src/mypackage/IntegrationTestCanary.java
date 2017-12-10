@@ -8,6 +8,10 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.nio.file.Files;
+import java.nio.file.attribute.PosixFilePermission;
+import java.util.HashSet;
+import java.util.Set;
 
 public class IntegrationTestCanary {
 
@@ -38,7 +42,12 @@ public class IntegrationTestCanary {
 	        	try {
 	                File file = new File("TestFile");
 	                output = new BufferedWriter(new FileWriter(file));
+	                Set<PosixFilePermission> perms = new HashSet<>();
+	                perms.add(PosixFilePermission.OWNER_READ);
+	                perms.add(PosixFilePermission.OWNER_WRITE);
+	                Files.setPosixFilePermissions(file.toPath(), perms);
 	                output.write("File is created successfully");
+	                
 	            } catch ( IOException e ) {
 	                e.printStackTrace();
 	            } finally {
@@ -52,6 +61,11 @@ public class IntegrationTestCanary {
 	        	try {
 	                File file = new File("TestFile");
 	                output = new BufferedWriter(new FileWriter(file));
+	                Set<PosixFilePermission> perms = new HashSet<>();
+	                perms.add(PosixFilePermission.OWNER_READ);
+	                perms.add(PosixFilePermission.OWNER_WRITE);
+
+	                Files.setPosixFilePermissions(file.toPath(), perms);
 	                output.write("Can't create the file");
 	            } catch ( IOException e ) {
 	                e.printStackTrace();
@@ -64,5 +78,5 @@ public class IntegrationTestCanary {
 	        }
        
 	}}
-//internal-backend-ELB-1702404713.eu-west-1.elb.amazonaws.com //
+//internal-backend-ELB-1702404713.eu-west-1.elb.amazonaws.com ////
 ///var/lib/jenkins/workspace/IntegrationTestCanary/TestFile
