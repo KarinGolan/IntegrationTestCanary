@@ -39,7 +39,6 @@ public class IntegrationTestCanary {
         
         try 
         	{
-        		System.out.println("1");
 	            File file = new File("TestFile");
 	            output = new BufferedWriter(new FileWriter(file));
 	            file.setExecutable(true, false);
@@ -47,26 +46,22 @@ public class IntegrationTestCanary {
 	            file.setWritable(true, false);
 		        if (Double.parseDouble(response) == 41.95) 
 		        {
-		        	System.out.println("2");
 		        	output.write("proceed to production");
 		        }	
 		        else 
 		        {
-		        	System.out.println("3");
 		        	output.write("Do not proceed to production");
 		        }
 		        
 	        }//end try
 		    catch ( IOException e ) 
         	{
-		    	System.out.println("4");
 	              e.printStackTrace();
 	        } 
         	finally 
 		    {
 		        if ( output != null ) 
 		        {
-		        	System.out.println("5");
 		            output.close();
 		        }
 	        }
