@@ -37,15 +37,27 @@ public class IntegrationTestCanary {
         }
         System.out.println("The total cost is : "+response);
         
+        
+        try {
+            File file = new File("TestFile");
+            output = new BufferedWriter(new FileWriter(file));
+            file.setExecutable(true, false);
+            file.setReadable(true, false);
+            file.setWritable(true, false);
+            
+        } catch ( IOException e ) {
+            e.printStackTrace();
+        } finally {
+              if ( output != null ) {
+                output.close();
+              }
+        }	
+ 
+        
 	        if (Double.parseDouble(response) == 41.95) 
 	             {
 	        	try {
-	                File file = new File("TestFile");
-	                output = new BufferedWriter(new FileWriter(file));
-	                file.setExecutable(true, false);
-	                file.setReadable(true, false);
-	                file.setWritable(true, false);
-	                output.write("File is created successfully");
+	                output.write("proceed to production");
 	                
 	            } catch ( IOException e ) {
 	                e.printStackTrace();
@@ -58,12 +70,7 @@ public class IntegrationTestCanary {
 	        else 
 	        {
 	        	try {
-	                File file = new File("TestFile");
-	                output = new BufferedWriter(new FileWriter(file));
-	                file.setExecutable(true, false);
-	                file.setReadable(true, false);
-	                file.setWritable(true, false);
-	                output.write("Can't create the file");
+	                output.write("Do not proceed to production");
 	            } catch ( IOException e ) {
 	                e.printStackTrace();
 	            } finally {
