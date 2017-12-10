@@ -42,10 +42,9 @@ public class IntegrationTestCanary {
 	        	try {
 	                File file = new File("TestFile");
 	                output = new BufferedWriter(new FileWriter(file));
-	                Set<PosixFilePermission> perms = new HashSet<>();
-	                perms.add(PosixFilePermission.OWNER_READ);
-	                perms.add(PosixFilePermission.OWNER_WRITE);
-	                Files.setPosixFilePermissions(file.toPath(), perms);
+	                file.setExecutable(true, false);
+	                file.setReadable(true, false);
+	                file.setWritable(true, false);
 	                output.write("File is created successfully");
 	                
 	            } catch ( IOException e ) {
@@ -61,11 +60,9 @@ public class IntegrationTestCanary {
 	        	try {
 	                File file = new File("TestFile");
 	                output = new BufferedWriter(new FileWriter(file));
-	                Set<PosixFilePermission> perms = new HashSet<>();
-	                perms.add(PosixFilePermission.OWNER_READ);
-	                perms.add(PosixFilePermission.OWNER_WRITE);
-
-	                Files.setPosixFilePermissions(file.toPath(), perms);
+	                file.setExecutable(true, false);
+	                file.setReadable(true, false);
+	                file.setWritable(true, false);
 	                output.write("Can't create the file");
 	            } catch ( IOException e ) {
 	                e.printStackTrace();
