@@ -39,12 +39,12 @@ public class IntegrationTestCanary {
         
         try 
         	{
+        		System.out.println("1");
 	            File file = new File("TestFile");
 	            output = new BufferedWriter(new FileWriter(file));
 	            file.setExecutable(true, false);
 	            file.setReadable(true, false);
 	            file.setWritable(true, false);
-        	 System.out.println("1");
 		        if (Double.parseDouble(response) == 41.95) 
 		        {
 		        	System.out.println("2");
