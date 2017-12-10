@@ -36,7 +36,7 @@ public class IntegrationTestCanary {
 	        if (Double.parseDouble(response) == 41.95) 
 	             {
 	        	try {
-	                File file = new File("\\var\\lib\\jenkins\\workspace\\IntegrationTestCanary\\TestFile");
+	                File file = new File("TestFile");
 	                output = new BufferedWriter(new FileWriter(file));
 	                output.write("File is created successfully");
 	            } catch ( IOException e ) {
@@ -50,7 +50,7 @@ public class IntegrationTestCanary {
 	        else 
 	        {
 	        	try {
-	                File file = new File("\\var\\lib\\jenkins\\workspace\\IntegrationTestCanary\\TestFile");
+	                File file = new File("TestFile");
 	                output = new BufferedWriter(new FileWriter(file));
 	                output.write("Can't create the file");
 	            } catch ( IOException e ) {
