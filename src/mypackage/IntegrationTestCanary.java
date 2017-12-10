@@ -36,7 +36,7 @@ public class IntegrationTestCanary {
 	        if (Double.parseDouble(response) == 41.95) 
 	             {
 	        	try {
-	                File file = new File("TestFile");
+	                File file = new File("//TestFile");
 	                output = new BufferedWriter(new FileWriter(file));
 	                output.write("File is created successfully");
 	            } catch ( IOException e ) {
