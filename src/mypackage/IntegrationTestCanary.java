@@ -37,23 +37,19 @@ public class IntegrationTestCanary {
         }
         System.out.println("The total cost is : "+response);
         
-        
-        try {
-            File file = new File("TestFile");
-            output = new BufferedWriter(new FileWriter(file));
-            file.setExecutable(true, false);
-            file.setReadable(true, false);
-            file.setWritable(true, false);
-            
-        } catch ( IOException e ) {
-            e.printStackTrace();
-        } finally {
-              if ( output != null ) {
-                output.close();
-              }
-        }	
+        try 
+        	{
+	            File file = new File("TestFile");
+	            output = new BufferedWriter(new FileWriter(file));
+	            file.setExecutable(true, false);
+	            file.setReadable(true, false);
+	            file.setWritable(true, false);
+        	} 
+        catch ( IOException e ) 
+	        {
+	            e.printStackTrace();
+	        } 
  
-        
 	        if (Double.parseDouble(response) == 41.95) 
 	             {
 	        	try {
