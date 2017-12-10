@@ -44,39 +44,29 @@ public class IntegrationTestCanary {
 	            file.setExecutable(true, false);
 	            file.setReadable(true, false);
 	            file.setWritable(true, false);
-        	} 
-        catch ( IOException e ) 
-	        {
-	            e.printStackTrace();
+        	 
+		        if (Double.parseDouble(response) == 41.95) 
+		        {
+		            output.write("proceed to production");
+		        }	
+		        else 
+		        {
+		            output.write("Do not proceed to production");
+		        }
+		        
+	        }//end try
+		    catch ( IOException e ) 
+        	{
+	              e.printStackTrace();
 	        } 
- 
-	        if (Double.parseDouble(response) == 41.95) 
-	             {
-	        	try {
-	                output.write("proceed to production");
-	                
-	            } catch ( IOException e ) {
-	                e.printStackTrace();
-	            } finally {
-		              if ( output != null ) {
-		                output.close();
-		              }
-	            }	
+        	finally 
+		    {
+		        if ( output != null ) 
+		        {
+		            output.close();
+		        }
 	        }
-	        else 
-	        {
-	        	try {
-	                output.write("Do not proceed to production");
-	            } catch ( IOException e ) {
-	                e.printStackTrace();
-	            } finally {
-		              if ( output != null ) {
-		                output.close();
-		              }
-                }
-         
-	        }
-       
-	}}
+        }
+	}
 //internal-backend-ELB-1702404713.eu-west-1.elb.amazonaws.com ////
 ///var/lib/jenkins/workspace/IntegrationTestCanary/TestFile
