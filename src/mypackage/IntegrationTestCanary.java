@@ -44,25 +44,29 @@ public class IntegrationTestCanary {
 	            file.setExecutable(true, false);
 	            file.setReadable(true, false);
 	            file.setWritable(true, false);
-        	 
+        	 System.out.println("1");
 		        if (Double.parseDouble(response) == 41.95) 
 		        {
-		            output.write("proceed to production");
+		        	System.out.println("2");
+		        	output.write("proceed to production");
 		        }	
 		        else 
 		        {
-		            output.write("Do not proceed to production");
+		        	System.out.println("3");
+		        	output.write("Do not proceed to production");
 		        }
 		        
 	        }//end try
 		    catch ( IOException e ) 
         	{
+		    	System.out.println("4");
 	              e.printStackTrace();
 	        } 
         	finally 
 		    {
 		        if ( output != null ) 
 		        {
+		        	System.out.println("5");
 		            output.close();
 		        }
 	        }
