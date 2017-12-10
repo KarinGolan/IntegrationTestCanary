@@ -33,7 +33,7 @@ public class IntegrationTestCanary {
         }
         System.out.println("The total cost is : "+response);
         
-	        if (Double.parseDouble(response) == 41.95) 
+	        if (Double.parseDouble(response) == 40.95) 
 	             {
 	        	try {
 	                File file = new File("/var/lib/jenkins/workspace/IntegrationTestCanary/TestFile");
