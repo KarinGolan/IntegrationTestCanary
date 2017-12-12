@@ -44,7 +44,7 @@ public class IntegrationTestCanary {
 	            file.setExecutable(true, false);
 	            file.setReadable(true, false);
 	            file.setWritable(true, false);
-		        if (Double.parseDouble(response) == 41.95) 
+		        if (Double.parseDouble(response) == 40.95) 
 		        {
 		        	output.write("proceed to production");
 		        }	
